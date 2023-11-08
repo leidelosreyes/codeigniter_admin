@@ -1,0 +1,129 @@
+body {
+  background: var(--secondary);
+}
+
+/* Start Sidebar */
+#sidebarMenu {
+  background: var(--secondary-dark);
+  box-shadow: 7px 25px 30px 1px var(--box-shadow);
+  -webkit-box-shadow: 7px 25px 30px 1px var(--box-shadow);
+  -moz-box-shadow: 7px 25px 30px 1px var(--box-shadow);
+}
+#sidebarMenu li {
+  list-style: none;
+  background: var(--secondary-dark);
+}
+#sidebarMenu ul {
+  text-align: center;
+  list-style-position: inside;
+}
+.logout {
+  font-size: var(--font-normal);
+  background: var(--primary);
+  box-shadow: 3px 4px 2px 0px var(--box-shadow);
+  -webkit-box-shadow: 3px 4px 2px 0px var(--box-shadow);
+  -moz-box-shadow: 3px 4px 2px 0px var(--box-shadow);
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.logout a {
+  color: var(--font-white);
+  text-decoration: none;
+}
+.logout a:hover {
+  color: var(--font-white) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.btn-toggle[aria-expanded="true"] {
+  background-color: var(--primary);
+  color: var(--font-white);
+  box-shadow: 3px 4px 2px 0px var(--box-shadow);
+  -webkit-box-shadow: 3px 4px 2px 0px var(--box-shadow);
+  -moz-box-shadow: 3px 4px 2px 0px var(--box-shadow);
+}
+.sidebar_r a {
+  text-align: left;
+}
+#account-collapse,
+#admin-collapse,
+#telemarketing-collapse,
+#message-collapse {
+  width: 85%;
+  margin: 0 auto;
+}
+@media (min-width: 767.98px) {
+  #sidebarMenu {
+    /* width: 300px; */
+    padding-top: 70px;
+  }
+}
+/* End Sidebar */
+
+/* Start Dashboard */
+.dashboard {
+  background-color: var(--secondary);
+  height: 95vh;
+  padding: 1rem 2rem;
+}
+.icons {
+  font-size: var(--font-md);
+  padding-right: 0.5rem;
+}
+.subicons {
+  font-size: var(--font-normal);
+  padding-right: 0.5rem;
+}
+/* End Dashboard */
+
+/* Start spinner */
+.spin {
+  top: 0;
+  left: 0;
+  background: var(--box-shadow);
+  z-index: 100;
+  position: fixed !important;
+}
+.profile-spinner,
+.teleadmin-spinner,
+.user-spinner,
+.permission-spinner,
+.role-spinner {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+}
+form.profile {
+  box-shadow: var(--box-shadow) 0px 10px 20px, var(--box-shadow) 0px 6px 6px;
+}
+
+/* End My Profile */
+
+/* font size and line height */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  line-height: 1em;
+}
+td,
+th {
+  font-size: var(--font-sm);
+}
+tr {
+  background: var(--secondary-dark);
+}
+
+.datepicker tr{
+  background: #ffffff !important;
+}
+/* end font size and line height */

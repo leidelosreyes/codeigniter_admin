@@ -1,0 +1,14 @@
+/writable/session/
+/writable/debugbar/
+/writable/logs/
+/writable/cache/
+/writable/uploads/
+
+!writable/session/.gitkeep
+!writable/debugbar/.gitkeep
+!writable/logs/.gitkeep
+!writable/cache/.gitkeep
+!writable/uploads/.gitkeep
+/dump.rdb
+
+/dump.rdb

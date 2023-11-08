@@ -1,0 +1,27 @@
+# ./docker-compose.yml
+version: "3"
+
+services:
+  app:
+    image: adhocore/lemp:8.0-alp3.13
+    # For different app you can use different names. (eg: )
+    container_name: whatsapp_message
+    volumes:
+      # app source code
+      - ./:/var/www/html
+      # db data persistence
+      - db_data:/var/lib/mysql
+      # Here you can also volume php ini settings
+      # - /path/to/zz-overrides:/usr/local/etc/php/conf.d/zz-overrides.ini
+    ports:
+      - 80:80
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root***
+      MYSQL_DATABASE: whatsapp_chat_db
+      MYSQL_USER: dbusr
+      MYSQL_PASSWORD: dbusr***
+      # for postgres you can pass in similar env as for mysql but with PGSQL_ prefix
+
+volumes:
+  db_data: {}
