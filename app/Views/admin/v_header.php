@@ -14,8 +14,8 @@
     <link href="<?= base_url(); ?>/assets/DataTables/datatables.min.css" rel="stylesheet">
     <!-- base css -->
     <link href="<?= base_url(); ?>/assets/css/base.css" rel="stylesheet">
-    <!-- color css -->
-    <link href="<?= base_url(); ?>/assets/css/global.css" rel="stylesheet">
+
+    <link href="<?= base_url(); ?>/assets/css/color.css" rel="stylesheet">
     <!-- style.css -->
     <link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet">
     <!-- Custom Loaded CSS -->
@@ -57,7 +57,7 @@
                         $permission_set = session()->get('permission_set');
                         ?>
 
-                        <?php if (in_array("UserManagement/index", $permission_set) || in_array("PermissionManagement/index", $permission_set) || in_array("RoleManagement/index", $permission_set) || in_array("SysConfig/index", $permission_set)) : ?>
+                        <?php if ( in_array("UrlController/index", $permission_set) || in_array("UserManagement/index", $permission_set) || in_array("PermissionManagement/index", $permission_set) || in_array("RoleManagement/index", $permission_set) || in_array("SysConfig/index", $permission_set)) : ?>
                             <li>
                                 <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#admin-collapse" aria-expanded="false">
                                     <i class="icons bi bi-person-circle"></i>
@@ -85,17 +85,23 @@
                                 </div>
                             </li>
                         <?php endif; ?>
-                        <?php if (in_array("Message/index", $permission_set)) : ?>
+
+                        <?php if (in_array("UrlController/index", $permission_set)) : ?>
                             <li>
                                 <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#message-collapse" aria-expanded="false">
                                     <i class="icons bi bi-envelope-fill"></i>
-                                    信息 / Message
+                                     Movies
                                 </button>
 
                                 <div class="collapse" id="message-collapse">
                                     <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <?php if (in_array("Message/index", $permission_set)) : ?>
-                                            <li><a href="/message" data-toggle="tooltip" title="发送信息 /Send Messages" class="sbnav"><i class="subicons bi bi-chat-dots"></i> 发送信息 /Send Messages</a></li>
+                                        <?php if (in_array("UrlController/index", $permission_set)) : ?>
+                                            <li><a href="/admin/home" data-toggle="tooltip" title="发送信息 /Send Messages" class="sbnav"><i class="subicons bi bi-chat-dots"></i>Url</a></li>
+                                        <?php endif; ?>
+                                    </ul>
+                                    <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <?php if (in_array("UrlController/index", $permission_set)) : ?>
+                                            <li><a href="/admin/ads" data-toggle="tooltip" title="ads" class="sbnav"><i class="subicons bi bi-chat-dots"></i>Ads</a></li>
                                         <?php endif; ?>
                                     </ul>
                                 </div>

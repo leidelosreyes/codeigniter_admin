@@ -1,0 +1,37 @@
+/* Setup the global colors */
+:root {
+    /* primary and secondary colors */
+    --primary: #0787e9;
+    --primary-light: #317cec;
+    --primary-dark: #0756ce;
+    --primary-darker: #013c69;
+    --secondary: #eef3f6;
+    --secondary-dark: #343a40;
+    --secondary-dark-5: #00000034;
+    --bg-back: #8a8a8a85;
+  
+    /* other colors */
+    --box-shadow: #00000049;
+  
+    /* basic colors */
+    --white: #fff;
+    --black: #000;
+  
+    /* font-size */
+    --font-sm: 0.8rem;
+    --font-normal: 1.128rem;
+    --font-md: 1.5rem;
+    --font-title: 2rem;
+  
+    /* font-color */
+    --font-color: #3a3a3a;
+    --font-hover: #0787e9;
+    --font-white: #fff;
+    --font-gray: #a7acb4;
+  }
+  
+  /* font */
+  * {
+    font-family: "Poppins", sans-serif !important;
+  }
+  

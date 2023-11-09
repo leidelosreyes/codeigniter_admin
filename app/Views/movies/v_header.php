@@ -84,8 +84,17 @@
 
     </div> -->
 
-</main>
 
+
+</main>
+<div class="container mt-4">
+
+    <?php foreach($ads as $item): ?>
+    <div class="mt-2">
+        <a href="<?php echo $item['link']?>"><img src="<?= base_url('uploads/' . $item['images']); ?>" height="100px" alt="u911" style="width:100%;border-radius: 10px;margin-top:2px;"></a>
+    </div>
+     <?php endforeach; ?>                       
+</div>
 
 
 <script>

@@ -100,6 +100,18 @@ $routes->get('movie/show/(:num)', 'Movies\MovieController::showDetails/$1');
 $routes->get('movie/play/(:num)', 'Movies\MovieController::videoPlay/$1');
 $routes->post('movie/play2', 'Movies\MovieController::play');
 
+
+//Admin Control
+$routes->get('admin/home','Admin\Movies\UrlController::index',['filter' => 'authGuard']);
+$routes->post('admin/url/datatable', 'Admin\Movies\UrlController::datatable',['filter' => 'authGuard']);
+$routes->post('admin/url/save_data', 'Admin\Movies\UrlController::save_data',['filter' => 'permGuard']);
+
+//Admin Ads
+$routes->get('admin/ads','Admin\Movies\AdsController::index');
+$routes->post('admin/ads/datatable', 'Admin\Movies\AdsController::datatable');
+$routes->post('admin/ads/save_data', 'Admin\Movies\AdsController::save_data');
+$routes->post('admin/ads/delete_data', 'Admin\Movies\AdsController::delete_data');
+
 //SYSTEM MODULES
 
 // Public API
