@@ -44,10 +44,12 @@
                         <?php endforeach; ?>
                     </ul>
                 </nav>
+                <form action="<?= site_url('home'); ?>" method="get" class="search-container">
+                    <input type="text" id="search-bar" name="search" placeholder="搜索您最喜欢的电影">
+                    <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+                </form>
         </header>
-
         <main>
-
             <div id="carousel">
 
                 <div class="hideLeft">
@@ -98,7 +100,7 @@
         <div class="container mt-4">
             <?php foreach ($ads as $item) : ?>
                 <div class="mt-2">
-                    <a href="<?php echo $item['link'] ?>"><img src="<?= base_url('uploads/' . $item['images']); ?>" height="100px" alt="u911" style="width:100%;border-radius: 10px;margin-top:2px;"></a>
+                    <a href="<?php echo $item['link'] ?>" target="_blank"><img src="<?= base_url('uploads/' . $item['images']); ?>" height="100px" alt="u911" style="width:100%;border-radius: 10px;margin-top:2px;"></a>
                 </div>
             <?php endforeach; ?>
         </div>

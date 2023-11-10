@@ -98,7 +98,7 @@ function b_delete(id){
                         if(data.status == 0)
                         {
                             $.alert({
-                                title: 'Error',
+                                title: '錯誤',
                                 icon: 'bi-exclamation-circle',
                                 type: 'red',
                                 content: data.message,
@@ -154,14 +154,14 @@ function b_submit() {
             if(data.status == 0)
             {
                 $.alert({
-                    title: 'Error',
+                    title: '錯誤',
                     icon: 'bi-exclamation-circle',
                     type: 'red',
                     content: data.validation,
                 });
             } else {
                 $.alert({
-                    title: 'Ads upload Complete.',
+                    title: '廣告上傳完成。',
                     content: data.result,
                     icon: 'bi-info-circle',
                     type: 'blue',
@@ -169,7 +169,7 @@ function b_submit() {
                     closeAnimation: 'scale',
                     buttons: {
                         okay: {
-                            text: 'Okay',
+                            text: '好的',
                             btnClass: 'btn-primary'
                         }
                     }
@@ -181,7 +181,7 @@ function b_submit() {
         },
         error: function (e) {
             $.alert({
-                title: 'Error',
+                title: '錯誤',
                 icon: 'bi-exclamation-circle',
                 type: 'red',
                 content:'发生了一个意外的错误。请联系您的服务器管理员。 / An unexpected error has occured. Please contact your server administrator.',

@@ -94,6 +94,7 @@ $routes->post('message/datatable','Chat\Message::datatable',['filter' => 'authGu
 $routes->post('message/save_data_csv','Chat\Message::save_data_csv',['filter' => 'authGuard']);
 
 //movies
+$routes->get('/','Movies\MovieController::index');
 $routes->get('home','Movies\MovieController::index');
 $routes->get('home/(:num)','Movies\MovieController::index/$1');
 $routes->get('movie/show/(:num)', 'Movies\MovieController::showDetails/$1');
