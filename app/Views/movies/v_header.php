@@ -44,10 +44,12 @@
                         <?php endforeach; ?>
                     </ul>
                 </nav>
+                <div>
                 <form action="<?= site_url('home'); ?>" method="get" class="search-container">
                     <input type="text" id="search-bar" name="search" placeholder="搜索您最喜欢的电影">
                     <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
                 </form>
+                </div>
         </header>
         <main>
             <div id="carousel">

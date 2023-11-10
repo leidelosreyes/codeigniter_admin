@@ -8,13 +8,25 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($data['list'] as $item) : ?>
+            <?php if (count($data['list']) > 0) : ?>
+                <?php foreach ($data['list'] as $item) : ?>
+                    <tr>
+                        <td>
+                            <a href="<?= site_url('movie/show/' . $item['vod_id']) ?>">
+                                <?php echo $item['vod_name']; ?>
+                            </a>
+                            <span style="color: red;"><?php echo $item['vod_remarks']; ?></span>
+                        </td>
+                        <td><?php echo $item['type_name']; ?></td>
+                        <td style="color: red;"><?php echo $item['vod_time']; ?></td>
+                    </tr>
+                <?php endforeach ?>
+            <?php else : ?>
+                <!-- Handle the case when the list is empty -->
                 <tr>
-                    <td><a href="<?= site_url('movie/show/' . $item['vod_id']) ?>"><?php echo $item['vod_name']; ?></a> <span style="color: red;"><?php echo $item['vod_remarks']; ?>;</span></td>
-                    <td><?php echo $item['type_name']; ?></td>
-                    <td style="color:red;"><?php echo $item['vod_time']; ?></td>
+                    <td colspan="3" style="text-align: center;">未找到任何項目</td>
                 </tr>
-            <?php endforeach ?>
+            <?php endif ?>
         </tbody>
     </table>
     <?= $pager_links ?>
