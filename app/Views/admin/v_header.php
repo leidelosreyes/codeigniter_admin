@@ -89,19 +89,19 @@
                         <?php if (in_array("UrlController/index", $permission_set)) : ?>
                             <li>
                                 <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#message-collapse" aria-expanded="false">
-                                    <i class="icons bi bi-envelope-fill"></i>
-                                     Movies
+                                 <i class="subicons bi bi-film"></i>
+                                    電影 /Movies
                                 </button>
 
                                 <div class="collapse" id="message-collapse">
                                     <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <?php if (in_array("UrlController/index", $permission_set)) : ?>
-                                            <li><a href="/admin/home" data-toggle="tooltip" title="发送信息 /Send Messages" class="sbnav"><i class="subicons bi bi-chat-dots"></i>Url</a></li>
+                                            <li><a href="/admin/home" data-toggle="tooltip" title="发送信息 /Send Messages" class="sbnav"><i class="subicons bi bi-link"></i>關聯 /Url</a></li>
                                         <?php endif; ?>
                                     </ul>
                                     <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <?php if (in_array("UrlController/index", $permission_set)) : ?>
-                                            <li><a href="/admin/ads" data-toggle="tooltip" title="ads" class="sbnav"><i class="subicons bi bi-chat-dots"></i>Ads</a></li>
+                                            <li><a href="/admin/ads" data-toggle="tooltip" title="ads" class="sbnav"><i class="subicons bi bi-image"></i>廣告 / Ads </a></li>
                                         <?php endif; ?>
                                     </ul>
                                 </div>

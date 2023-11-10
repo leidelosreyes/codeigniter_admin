@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Movies;
+namespace App\Controllers\movies;
 
 use App\Controllers\BaseController;
 use App\Models\UrlModel;
@@ -67,9 +67,9 @@ class MovieController extends BaseController
             'ads' => $this->ads
         ];
 
-        return view('Movies/v_header', $dataset)
-            . view('Movies/v_home')
-            . view('Movies/v_footer');
+        return view('movies/v_header', $dataset)
+            . view('movies/v_home')
+            . view('movies/v_footer');
     }
     private function object_to_array($d)
     {
@@ -104,9 +104,9 @@ class MovieController extends BaseController
             'ads' => $this->ads
         ];
 
-        return view('Movies/v_header', $dataset)
-            . view('Movies/v_movie_detail')
-            . view('Movies/v_footer');
+        return view('movies/v_header', $dataset)
+            . view('movies/v_movie_detail')
+            . view('movies/v_footer');
     }
     public function videoPlay($id)
     {
@@ -137,9 +137,9 @@ class MovieController extends BaseController
             'ads' => $this->ads
         ];
 
-        return view('Movies/v_header', $dataset)
-            . view('Movies/v_movie_play')
-            . view('Movies/v_footer');
+        return view('movies/v_header', $dataset)
+            . view('movies/v_movie_play')
+            . view('movies/v_footer');
     }
 
     public function play()

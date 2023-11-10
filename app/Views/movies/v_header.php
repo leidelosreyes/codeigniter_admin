@@ -17,62 +17,70 @@
     <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.15.2/aliplayer-min.js"></script>
     <script src="<?= base_url(); ?>/assets/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 
+
 </head>
-<header class="main-header">
-    <h1 class="logo mt-4">
-         电影中心 
-    <nav class="navigation">
-        <ul>
-            <li class="active"><a href="<?= site_url('home') ?>">主页</a></li>
-            <?php foreach ($category as $item) : ?>
-                <div class="dropdown">
-                    <li><a href="#"><?php echo $item['type_name'] ?></a></li>
-                    <div class="dropdown-content">
-                        <?php foreach ($item['child'] as $sub_category) : ?>
-                            <a href="<?= site_url('home?id='. $sub_category['type_id'])?>"><?php echo $sub_category['type_name']?></a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </ul>
-    </nav>
-</header>
 
-<main>
-
-    <div id="carousel">
-
-        <div class="hideLeft">
-            <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
-        </div>
-
-        <div class="prevLeftSecond">
-            <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-        </div>
-
-        <div class="prev">
-            <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-        </div>
-
-        <div class="selected">
-            <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-        </div>
-
-        <div class="next">
-            <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-        </div>
-
-        <div class="nextRightSecond">
-            <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-        </div>
-
-        <div class="hideRight">
-            <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-        </div>
-
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loader-text">載入中...</div>
     </div>
+    <div id="content">
+        <header class="main-header">
+            <h1 class="logo mt-4">
+                电影中心
+                <nav class="navigation">
+                    <ul>
+                        <li class="active"><a href="<?= site_url('home') ?>">主页</a></li>
+                        <?php foreach ($category as $item) : ?>
+                            <div class="dropdown">
+                                <li><a href="#"><?php echo $item['type_name'] ?></a></li>
+                                <div class="dropdown-content">
+                                    <?php foreach ($item['child'] as $sub_category) : ?>
+                                        <a href="<?= site_url('home?id=' . $sub_category['type_id']) ?>"><?php echo $sub_category['type_name'] ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+        </header>
 
-    <!-- <div class="buttons">
+        <main>
+
+            <div id="carousel">
+
+                <div class="hideLeft">
+                    <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+                </div>
+
+                <div class="prevLeftSecond">
+                    <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+                </div>
+
+                <div class="prev">
+                    <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+                </div>
+
+                <div class="selected">
+                    <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+                </div>
+
+                <div class="next">
+                    <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+                </div>
+
+                <div class="nextRightSecond">
+                    <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+                </div>
+
+                <div class="hideRight">
+                    <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+                </div>
+
+            </div>
+
+            <!-- <div class="buttons">
         <a id="prev"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1 h-1">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
             </svg>
@@ -86,74 +94,83 @@
 
 
 
-</main>
-<div class="container mt-4">
+        </main>
+        <div class="container mt-4">
+            <?php foreach ($ads as $item) : ?>
+                <div class="mt-2">
+                    <a href="<?php echo $item['link'] ?>"><img src="<?= base_url('uploads/' . $item['images']); ?>" height="100px" alt="u911" style="width:100%;border-radius: 10px;margin-top:2px;"></a>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-    <?php foreach($ads as $item): ?>
-    <div class="mt-2">
-        <a href="<?php echo $item['link']?>"><img src="<?= base_url('uploads/' . $item['images']); ?>" height="100px" alt="u911" style="width:100%;border-radius: 10px;margin-top:2px;"></a>
-    </div>
-     <?php endforeach; ?>                       
-</div>
+
+        <script>
+            $(document).ready(function() {
+                // Simulate a delay (you can replace this with your actual page load logic)
+                setTimeout(function() {
+                    // Hide the loader
+                    $('.loader-container').fadeOut('slow', function() {
+                        // Show the content
+                        $('#content').fadeIn('slow');
+                    });
+                }, 2000); // Replace 2000 with the desired delay in milliseconds
+            });
 
 
-<script>
-    function moveToSelected(element) {
+            function moveToSelected(element) {
 
-        if (element == "next") {
-            var selected = $(".selected").next();
-        } else if (element == "prev") {
-            var selected = $(".selected").prev();
-        } else {
-            var selected = element;
-        }
+                if (element == "next") {
+                    var selected = $(".selected").next();
+                } else if (element == "prev") {
+                    var selected = $(".selected").prev();
+                } else {
+                    var selected = element;
+                }
 
-        var next = $(selected).next();
-        var prev = $(selected).prev();
-        var prevSecond = $(prev).prev();
-        var nextSecond = $(next).next();
+                var next = $(selected).next();
+                var prev = $(selected).prev();
+                var prevSecond = $(prev).prev();
+                var nextSecond = $(next).next();
 
-        $(selected).removeClass().addClass("selected");
+                $(selected).removeClass().addClass("selected");
 
-        $(prev).removeClass().addClass("prev");
-        $(next).removeClass().addClass("next");
+                $(prev).removeClass().addClass("prev");
+                $(next).removeClass().addClass("next");
 
-        $(nextSecond).removeClass().addClass("nextRightSecond");
-        $(prevSecond).removeClass().addClass("prevLeftSecond");
+                $(nextSecond).removeClass().addClass("nextRightSecond");
+                $(prevSecond).removeClass().addClass("prevLeftSecond");
 
-        $(nextSecond).nextAll().removeClass().addClass('hideRight');
-        $(prevSecond).prevAll().removeClass().addClass('hideLeft');
+                $(nextSecond).nextAll().removeClass().addClass('hideRight');
+                $(prevSecond).prevAll().removeClass().addClass('hideLeft');
 
-    }
+            }
 
-    // Eventos teclado
-    $(document).keydown(function(e) {
-        switch (e.which) {
-            case 37: // left
+            // Eventos teclado
+            $(document).keydown(function(e) {
+                switch (e.which) {
+                    case 37: // left
+                        moveToSelected('prev');
+                        break;
+
+                    case 39: // right
+                        moveToSelected('next');
+                        break;
+
+                    default:
+                        return;
+                }
+                e.preventDefault();
+            });
+
+            $('#carousel div').click(function() {
+                moveToSelected($(this));
+            });
+
+            $('#prev').click(function() {
                 moveToSelected('prev');
-                break;
+            });
 
-            case 39: // right
+            $('#next').click(function() {
                 moveToSelected('next');
-                break;
-
-            default:
-                return;
-        }
-        e.preventDefault();
-    });
-
-    $('#carousel div').click(function() {
-        moveToSelected($(this));
-    });
-
-    $('#prev').click(function() {
-        moveToSelected('prev');
-    });
-
-    $('#next').click(function() {
-        moveToSelected('next');
-    });
-</script>
-
-<body>
+            });
+        </script>

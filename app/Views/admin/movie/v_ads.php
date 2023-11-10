@@ -1,6 +1,6 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mb-5">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2 class="h2"><?php echo $pagetitle; ?> <a href="javascript: reloadPage();"><i class="bi-arrow-clockwise"></i></a></h2>
+        <h2 class="h2"><?php echo $pagetitle; ?></h2>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
                 <button onclick="b_add()" type="button" class="btn btn-sm btn-primary">添加/Add</button>
@@ -10,19 +10,19 @@
     </div>
 
     <div id="crud_form" style="display: none;">
-        <h4 id="crud_label">Add/Edit Links</h4>
+        <h4 id="crud_label">新增/編輯鏈接</h4>
         <form action="/admin/ads/save_data" method="post" enctype="multipart/form-data">
             <div class="mb-3 col-md-6">
-                <label for="username" class="form-label">Ads Link</label>
+                <label for="username" class="form-label">廣告連結</label>
                 <input type="text" class="form-control" id="link">
-                <div id="usertext" class="form-text">Enter your Links.</div>
+                <div id="usertext" class="form-text">輸入連結。</div>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="username" class="form-label">Ads Description</label>
+                <label for="username" class="form-label">廣告說明</label>
                 <input type="text" class="form-control" id="description">
-                <div id="usertext" class="form-text">Enter your description.</div>
+                <div id="usertext" class="form-text">廣告說明</div>
             </div>
-            <label for="username" class="form-label">Upload image</label>
+            <label for="username" class="form-label">上傳圖片</label>
             <input type="file" name="images" id="images">
             <input type="hidden" id="action_type" value="add">
         </form>
@@ -41,19 +41,19 @@
             <thead>
                 <tr class="text-light">
                     <th>ID</th>
-                    <th>Link</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Actions</th>
+                    <th>關聯</th>
+                    <th>描述</th>
+                    <th>圖片</th>
+                    <th>行動</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr class="text-light">
                     <th>ID</th>
-                    <th>Link</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Actions</th>
+                    <th>關聯</th>
+                    <th>描述</th>
+                    <th>圖片</th>
+                    <th>行動</th>
                 </tr>
             </tfoot>
         </table>

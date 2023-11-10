@@ -69,6 +69,6 @@ return [
     'max_size' => '{field} is too large of a file.',
     'is_image' => '{field} is not a valid, uploaded image file.',
     'mime_in'  => '{field} does not have a valid mime type.',
-    'ext_in'   => '{field} does not have a valid file extension.',
+    'ext_in'   => '{field} 沒有有效的檔案副檔名.',
     'max_dims' => '{field} is either not an image, or it is too wide or tall.',
 ];

@@ -4,13 +4,7 @@
             <div class="row">
                 <?php foreach ($data['list'] as $item) : ?>
                     <div class="col-md-2">
-                             <?php
-                            if (!empty($item['vod_pic'])) {
-                                echo '<img src="' . $item['vod_pic'] . '" class="img-fluid" alt="Product Image">';
-                            } else {
-                                echo '<img src="' . base_url() . '/assets/images/no_image.jpg" class="img-fluid" alt="Default Image">';
-                            }
-                                ?>
+                        <img src="<?php echo $item['vod_pic'] ?>" alt="Your Image" class="img-fluid image" onerror="errorFunction()">
                     </div>
                     <div class="col-md-9">
                         <h1><?php echo $item['vod_name']; ?></h1>
@@ -53,7 +47,7 @@
     </div>
     <div class="card mt-4">
         <div class="card-header">
-        概要
+            概要
         </div>
         <div class="card-body">
             <?php echo $item['vod_content'] ?>
@@ -61,18 +55,18 @@
     </div>
     <div class="card mt-4">
         <div class="card-header">
-        视频链接
+            视频链接
         </div>
         <div class="card-body">
             <div class="card">
                 <ul class="list-group list-group-flush">
-                <?php $counter = 0; ?>
+                    <?php $counter = 0; ?>
                     <?php foreach ($video_urls as $play) : ?>
-                        <?php if ($counter < 10): ?>
-                        <?php list($code, $url) = explode('$', $play); ?>
-                        <li class="list-group-item">
-                            <a class="play" data="<?php echo $url ?>" vod_id="<?php echo $item['vod_id'] ?>">  <?php echo $play ?> </a>
-                        </li>
+                        <?php if ($counter < 10) : ?>
+                            <?php list($code, $url) = explode('$', $play); ?>
+                            <li class="list-group-item">
+                                <a class="play" data="<?php echo $url ?>" vod_id="<?php echo $item['vod_id'] ?>"> <?php echo $play ?> </a>
+                            </li>
                         <?php endif; ?>
                         <?php $counter++; ?>
                     <?php endforeach; ?>
@@ -85,6 +79,10 @@
 
 
 <script>
+    function errorFunction() {
+        $('.image').attr('src', '<?php echo base_url() . "/assets/images/no_image.jpg" ?>'); // Replace with the path to your placeholder image
+    }
+
     $(".play").click(function() {
         $.ajax({
 
@@ -93,11 +91,11 @@
             dataType: 'json',
             data: {
                 data: $(this).attr('data'),
-                id:$(this).attr('vod_id')
+                id: $(this).attr('vod_id')
             },
             success: function(response) {
                 // This code will run if the request succeeds.
-               window.location.href = "<?= site_url('movie/play/') ?>"+response.id;
+                window.location.href = "<?= site_url('movie/play/') ?>" + response.id;
                 // Perform actions with the response data.
             },
             error: function(xhr, status, error) {

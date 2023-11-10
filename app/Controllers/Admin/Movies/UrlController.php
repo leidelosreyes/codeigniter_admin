@@ -21,7 +21,7 @@ class UrlController extends BaseController
     public function index()
     {
         $dataset = [
-            'pagetitle' => 'Url',
+            'pagetitle' => '基本網址',
             'css' => ['/assets/bootstrap-datepicker/css/datepicker.css'], // use to add css specific to page.
             'js' => ['/assets/bootstrap-datepicker/js/bootstrap-datepicker.js', '/assets/js/url.js'] // use to add js specific to page.
         ];
@@ -51,7 +51,7 @@ class UrlController extends BaseController
             'url' => [
                 'url' => 'required',
                 'errors' => [ // setting custom error response
-                    'required' => '请输入用户名 / The Url field is required.',
+                    'required' => '鏈接字段是必需的。',
                 ]
             ],
         ];

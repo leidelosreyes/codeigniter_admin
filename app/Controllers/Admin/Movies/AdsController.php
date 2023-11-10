@@ -21,7 +21,7 @@ class AdsController extends BaseController
     public function index()
     {
         $dataset = [
-            'pagetitle' => 'Ads',
+            'pagetitle' => '橫幅廣告',
             'css' => ['/assets/bootstrap-datepicker/css/datepicker.css'], // use to add css specific to page.
             'js' => ['/assets/bootstrap-datepicker/js/bootstrap-datepicker.js', '/assets/js/ads.js'] // use to add js specific to page.
         ];
@@ -47,9 +47,31 @@ class AdsController extends BaseController
     {
         $AdsModel = model(AdsModel::class);
         $postdata = $this->request->getPost();
-    
          if($postdata['action_type']== 'add')
          {
+            $rules = [
+                'link' => [
+                    'link' => 'required',
+                    'errors' => [ // setting custom error response
+                        'required' => '關聯 / 鏈接字段是必需的。',
+                    ]
+                ],
+                'description' => [
+                    'description' => 'required',
+                    'errors' => [ // setting custom error response
+                        'required' => '描述 / 說明欄位為必填項。',
+                    ]
+                ],
+                'images' => [
+                    'rules' =>'ext_in[images,png,jpg,gif]',
+                    'errors' => [ // setting custom error response
+                        'required' => '圖片 / The Image field is required.',
+                    ]
+                ]
+            ];
+            if (!$this->validate($rules)) {
+                return $this->response->setJSON(['status' => 0, 'validation' => $this->validator->listErrors()]);
+            }
              $image = $this->request->getFile('images');
              $imageName = $image->getRandomName();
              $image->move(ROOTPATH . 'public/uploads', $imageName);
@@ -67,10 +89,24 @@ class AdsController extends BaseController
              }
          } else {
              //edit data
-             $dataset = [
-                 'link' => $postdata['link'],
-                 'description' => $postdata['description'],
-             ];
+             $image = $this->request->getFile('images');
+             if($image){
+                $imageName = $image->getRandomName();
+                $image->move(ROOTPATH . 'public/uploads', $imageName);
+                $postdata['images'] = $imageName;
+                $dataset = [
+                    'link' => $postdata['link'],
+                    'description' => $postdata['description'],
+                    'images' =>  $postdata['images'] = $imageName
+                ];
+             }
+             else{
+                $dataset = [
+                    'link' => $postdata['link'],
+                    'description' => $postdata['description']
+                ];
+             }
+             
              $result = $AdsModel->update_data($postdata['action_type'], $dataset);
  
              if($result['message'] == 'success'){
