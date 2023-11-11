@@ -118,8 +118,7 @@
                         $('#content').fadeIn('slow');
                     });
                 }, 2000); // Replace 2000 with the desired delay in milliseconds
-            });
-
+            });      
 
             function moveToSelected(element) {
 

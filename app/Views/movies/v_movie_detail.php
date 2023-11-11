@@ -1,3 +1,6 @@
+<section id="videoDetail">
+
+
 <div class="container mt-5">
     <div class="card">
         <div class="card-body">
@@ -76,9 +79,10 @@
     </div>
 <?php endforeach ?>
 </div>
-
+</section>
 
 <script>
+     
     function errorFunction() {
         $('.image').attr('src', '<?php echo base_url() . "/assets/images/no_image.jpg" ?>'); // Replace with the path to your placeholder image
     }

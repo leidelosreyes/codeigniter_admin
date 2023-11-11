@@ -379,7 +379,6 @@ input#search-bar {
 input#search-bar:focus {
   border: 1px solid  #007bff;
   transition: 0.35s ease;
-  color:  #007bff;
 }
 
 input#search-bar:focus::-webkit-input-placeholder {
