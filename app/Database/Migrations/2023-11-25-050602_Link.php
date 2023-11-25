@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Url extends Migration
+class Link extends Migration
 {
     public function up()
     {
@@ -16,7 +16,12 @@ class Url extends Migration
                     'unsigned'          => true,
                     'auto_increment'    => true
                 ],
-                'base_url' => [
+                'links' => [
+                    'type'              => 'VARCHAR',
+                    'constraint'        => 50,
+                    'null'              => false
+                ],
+                'key' => [
                     'type'              => 'VARCHAR',
                     'constraint'        => 50,
                     'null'              => false
@@ -38,11 +43,11 @@ class Url extends Migration
         // adding key
 		$this->forge->addKey('id', true);
 		// create table
-        $this->forge->createTable('url');
+        $this->forge->createTable('links');
     }
 
     public function down()
     {
-        $this->forge->dropTable('url');
+        $this->forge->dropTable('links');
     }
 }

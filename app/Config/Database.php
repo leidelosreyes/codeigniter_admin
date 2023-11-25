@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'whatsapp_messaging',
+        'hostname' => 'base_admin',
         'username' => '',
         'password' => '',
         'database' => '',

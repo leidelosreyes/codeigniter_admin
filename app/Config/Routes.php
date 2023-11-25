@@ -94,25 +94,34 @@ $routes->post('message/datatable','Chat\Message::datatable',['filter' => 'authGu
 $routes->post('message/save_data_csv','Chat\Message::save_data_csv',['filter' => 'authGuard']);
 
 //movies
-$routes->get('/','Movies\MovieController::index');
-$routes->get('home','Movies\MovieController::index');
-$routes->get('home/(:num)','Movies\MovieController::index/$1');
-$routes->get('movie/show/(:num)', 'Movies\MovieController::showDetails/$1');
-$routes->get('movie/play/(:num)', 'Movies\MovieController::videoPlay/$1');
-$routes->post('movie/play2', 'Movies\MovieController::play');
+// $routes->get('/','Movies\MovieController::index');
+// $routes->get('home','Movies\MovieController::index');
+// $routes->get('home/(:num)','Movies\MovieController::index/$1');
+// $routes->get('movie/show/(:num)', 'Movies\MovieController::showDetails/$1');
+// $routes->get('movie/play/(:num)', 'Movies\MovieController::videoPlay/$1');
+// $routes->post('movie/play2', 'Movies\MovieController::play');
 
 
 //Admin Control
-$routes->get('admin/home','Admin\Movies\UrlController::index',['filter' => 'authGuard']);
-$routes->post('admin/url/datatable', 'Admin\Movies\UrlController::datatable',['filter' => 'authGuard']);
-$routes->post('admin/url/save_data', 'Admin\Movies\UrlController::save_data',['filter' => 'permGuard']);
+// $routes->get('admin/home','Admin\Movies\UrlController::index',['filter' => 'authGuard']);
+// $routes->post('admin/url/datatable', 'Admin\Movies\UrlController::datatable',['filter' => 'authGuard']);
+// $routes->post('admin/url/save_data', 'Admin\Movies\UrlController::save_data',['filter' => 'permGuard']);
 
-//Admin Ads
-$routes->get('admin/ads','Admin\Movies\AdsController::index');
-$routes->post('admin/ads/datatable', 'Admin\Movies\AdsController::datatable');
-$routes->post('admin/ads/save_data', 'Admin\Movies\AdsController::save_data');
-$routes->post('admin/ads/delete_data', 'Admin\Movies\AdsController::delete_data');
+//Admin image
+$routes->get('admin/image','Admin\LandingPage\ImageController::index');
+$routes->post('admin/image/datatable', 'Admin\LandingPage\ImageController::datatable');
+$routes->post('admin/image/save_data', 'Admin\LandingPage\ImageController::save_data');
+$routes->post('admin/image/delete_data', 'Admin\LandingPage\ImageController::delete_data');
 
+
+//Admin links
+$routes->get('admin/links','Admin\LandingPage\LinkController::index');
+$routes->post('admin/links/datatable', 'Admin\LandingPage\LinkController::datatable');
+$routes->post('admin/links/save_data', 'Admin\LandingPage\LinkController::save_data');
+$routes->post('admin/links/delete_data', 'Admin\LandingPage\LinkController::delete_data');
+
+//Home 
+$routes->get('/','Home\HomeController::index');
 //SYSTEM MODULES
 
 // Public API
