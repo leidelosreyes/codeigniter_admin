@@ -49,6 +49,7 @@ body {
 }
 #account-collapse,
 #admin-collapse,
+#web-collapse,
 #telemarketing-collapse,
 #message-collapse {
   width: 85%;

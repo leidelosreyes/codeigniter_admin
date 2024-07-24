@@ -57,7 +57,7 @@
                         $permission_set = session()->get('permission_set');
                         ?>
 
-                        <?php if ( in_array("UrlController/index", $permission_set) || in_array("UserManagement/index", $permission_set) || in_array("PermissionManagement/index", $permission_set) || in_array("RoleManagement/index", $permission_set) || in_array("SysConfig/index", $permission_set)) : ?>
+                        <?php if (in_array("UrlController/index", $permission_set) || in_array("UserManagement/index", $permission_set) || in_array("PermissionManagement/index", $permission_set) || in_array("RoleManagement/index", $permission_set) || in_array("SysConfig/index", $permission_set)) : ?>
                             <li>
                                 <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#admin-collapse" aria-expanded="false">
                                     <i class="icons bi bi-person-circle"></i>
@@ -84,29 +84,24 @@
                                     </ul>
                                 </div>
                             </li>
-                        <?php endif; ?>
 
-              
                             <li>
-                                <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#message-collapse" aria-expanded="false">
-                                 <i class="subicons bi bi-film"></i>
-                                 登陸頁面 /Landing Page
+                                <button class="btn btn-toggle align-items-center collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#web-collapse" aria-expanded="false">
+                                    <i class="icons bi bi-globe"></i>
+                                    网站 / Web Sites
                                 </button>
+                                <div class="collapse" id="web-collapse">
+                                    <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
-                                <div class="collapse" id="message-collapse">
-                                    <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                      
-                                            <li><a href="/admin/links" data-toggle="tooltip" title="发送信息 /Send Messages" class="sbnav"><i class="subicons bi bi-link"></i>連結 /Links</a></li>
-                                      
-                                    </ul>
-                                    <ul class="sidebar_r btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                      
-                                            <li><a href="/admin/image" data-toggle="tooltip" title="ads" class="sbnav"><i class="subicons bi bi-image"></i>影像 / Image </a></li>
-                                       
+                                        <li><a href="/gbh758" data-toggle="tooltip" title="gbh758.com" class="sbnav"><i class="bi bi-dice-1" style="font-size: 1.5em;"></i> gbh758.com</a></li>
+                                        <li><a href="/gbhvip399" data-toggle="tooltip" title="gbhvip399.com" class="sbnav"><i class="bi bi-dice-2"style="font-size: 1.5em;"></i> gbhvip399.com</a></li>
+                                        <li><a href="/gbh012" data-toggle="tooltip" title="gbh012.com" class="sbnav"><i class="bi bi-dice-3" style="font-size: 1.5em;"></i> gbh012.com</a></li>
+
                                     </ul>
                                 </div>
                             </li>
-                      
+                        <?php endif; ?>
+
                         <?php if (in_array("TeleAdmin/index", $permission_set) || in_array("TeleAgent/index", $permission_set)) : ?>
                             <li>
                                 <button class="btn btn-toggle align-items-center mb-2 collapsed" data-bs-toggle="collapse" data-bs-target="#telemarketing-collapse" aria-expanded="false">

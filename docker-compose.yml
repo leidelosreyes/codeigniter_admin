@@ -5,7 +5,7 @@ services:
   app:
     image: adhocore/lemp:8.0-alp3.13
     # For different app you can use different names. (eg: )
-    container_name: base_admin
+    container_name: consolidated_admin
     volumes:
       # app source code
       - ./:/var/www/html
@@ -18,7 +18,7 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root***
-      MYSQL_DATABASE: base_admin_db
+      MYSQL_DATABASE: consolidated_admin_db
       MYSQL_USER: dbusr
       MYSQL_PASSWORD: dbusr***
       # for postgres you can pass in similar env as for mysql but with PGSQL_ prefix

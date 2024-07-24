@@ -51,14 +51,22 @@ $(function() {
         columns: [
             { data: 'id' },
             { data: 'images' },
+            { data: 'slag' },
+            { data: 'orientation' },
             { data: 'updated_at' },
+            {render: function(data, type, row){
+                var baseURL = window.location.protocol + "//" + window.location.host + "/" + "uploads/";
+                var imageUrl = baseURL + row.images;
+                return '<img src="' +  imageUrl + '" alt="Image"  style="width: 100px; height: 100px;">';
+
+            }},
             {
                 render: function (data, type, row) {
                     var baseURL = window.location.protocol + "//" + window.location.host + "/" + "uploads/";
                     var imageUrl = baseURL + row.images;
 
                     console.log(imageUrl);
-                    return '<button onclick="b_edit('+row.id+', \''+imageUrl+'\')" class="btn btn-warning btn-sm me-2 my-1" type="button">编辑/Edit</button> <button onclick="b_delete('+row.id+')" class="btn btn-danger btn-sm my-1" type="button">删除/Delete</button>  <img src="' +  imageUrl + '" alt="Image"  style="width: 100px; height: 100px;">';
+                    return '<button onclick="b_edit('+row.id+', \''+imageUrl+'\',\''+row.slag+'\',\''+row.orientation+'\')" class="btn btn-warning btn-sm me-2 my-1" type="button">编辑/Edit</button> <button onclick="b_delete('+row.id+')" class="btn btn-danger btn-sm my-1" type="button">删除/Delete</button> ';
                 },
                 orderable: false
             },
@@ -70,12 +78,14 @@ $(function() {
 var toasttarget = document.getElementById('liveToast');
 var toast1 = new bootstrap.Toast(toasttarget , []);
 
-function b_edit(id, imageUrl){
+function b_edit(id, imageUrl,slag,orientation){
     console.log(imageUrl);
     clear_form();
     $("#crud_form").show();
     $("#crud_label").html("編輯影像 / Edit Image ");
     $("#action_type").val(id);
+    $("#slag").val(slag);
+    $("#orientation").val(orientation);
     $("#images_1").attr("src", imageUrl);
 }
 
@@ -136,6 +146,8 @@ function b_cancel()
 function b_submit() {
     var formData = new FormData();
     // Append the form fields to the FormData object
+    formData.append('slag', $("#slag").val());
+    formData.append('orientation', $("#orientation").val());
     formData.append('action_type', $("#action_type").val());
 
     var fileInput = $('#images')[0];
@@ -196,6 +208,8 @@ function clear_form()
 {
     $("#images_1").attr("src", "");
     $("#images").val("");
+    $("#slag").val("");
+    $("#orientaion").val("");
 }
 
 function spinner() {

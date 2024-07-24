@@ -18,8 +18,8 @@ class UsersSeed extends Seeder
         // initial seed file for users table
          $data = [
             [
-                'username' => '699_vipAdmin',
-                'password' => password_hash('G6A0ImdC5HLnpwd', PASSWORD_DEFAULT),
+                'username' => 'ConsolidatedAdmin',
+                'password' => password_hash('Admin0ImdC5HLnpwd', PASSWORD_DEFAULT),
                 'email' => 'abc01@abc.com',
                 'role_id' => 1,
                 'gsecret' => 'EMKQ6YAMXFESMQOL', // google auth secret

@@ -87,11 +87,34 @@ $routes->post('sysconfig/datatable', 'Admin\SysConfig::datatable', ['filter' => 
 $routes->post('sysconfig/save_data', 'Admin\SysConfig::save_data', ['filter' => 'permGuard']);
 $routes->post('sysconfig/delete_data', 'Admin\SysConfig::delete_data', ['filter' => 'permGuard']);
 
+// gbh758
+$routes->get('gbh758', 'Admin\Gbh758::index', ['filter' => 'authGuard']);
+$routes->post('gbh758/datatable', 'Admin\Gbh758::datatable', ['filter' => 'authGuard']);
+$routes->post('gbh758/save_data', 'Admin\Gbh758::save_data', ['filter' => 'authGuard']);
+$routes->post('gbh758/delete_data', 'Admin\Gbh758::delete_data', ['filter' => 'authGuard']);
+
+// gbh012
+$routes->get('gbh012', 'Admin\Gbh012::index', ['filter' => 'authGuard']);
+$routes->post('gbh012/datatable', 'Admin\Gbh012::datatable', ['filter' => 'authGuard']);
+$routes->post('gbh012/save_data', 'Admin\Gbh012::save_data', ['filter' => 'authGuard']);
+$routes->post('gbh012/delete_data', 'Admin\Gbh012::delete_data', ['filter' => 'authGuard']);
+
+// gbhvip399
+$routes->get('gbhvip399', 'Admin\GbhVip399::index', ['filter' => 'authGuard']);
+$routes->post('gbhvip399/datatable', 'Admin\GbhVip399::datatable', ['filter' => 'authGuard']);
+$routes->post('gbhvip399/save_data', 'Admin\GbhVip399::save_data', ['filter' => 'authGuard']);
+$routes->post('gbhvip399/delete_data', 'Admin\GbhVip399::delete_data', ['filter' => 'authGuard']);
+
+// web api
+$routes->get('api/gbh758','PublicApi\GetGbh758::index');
+$routes->get('api/gbh012','PublicApi\GetGbh012::index');
+$routes->get('api/gbhvip399','PublicApi\GetGbhvip399::index');
+
 
 //message
-$routes->get('message','Chat\Message::index',['filter' => 'authGuard']);
-$routes->post('message/datatable','Chat\Message::datatable',['filter' => 'authGuard']);
-$routes->post('message/save_data_csv','Chat\Message::save_data_csv',['filter' => 'authGuard']);
+// $routes->get('message','Chat\Message::index',['filter' => 'authGuard']);
+// $routes->post('message/datatable','Chat\Message::datatable',['filter' => 'authGuard']);
+// $routes->post('message/save_data_csv','Chat\Message::save_data_csv',['filter' => 'authGuard']);
 
 //movies
 // $routes->get('/','Movies\MovieController::index');
@@ -108,22 +131,15 @@ $routes->post('message/save_data_csv','Chat\Message::save_data_csv',['filter' =>
 // $routes->post('admin/url/save_data', 'Admin\Movies\UrlController::save_data',['filter' => 'permGuard']);
 
 //Admin image
-$routes->get('admin/image','Admin\LandingPage\ImageController::index');
-$routes->post('admin/image/datatable', 'Admin\LandingPage\ImageController::datatable');
-$routes->post('admin/image/save_data', 'Admin\LandingPage\ImageController::save_data');
-$routes->post('admin/image/delete_data', 'Admin\LandingPage\ImageController::delete_data');
-
-
-//Admin links
-$routes->get('admin/links','Admin\LandingPage\LinkController::index');
-$routes->post('admin/links/datatable', 'Admin\LandingPage\LinkController::datatable');
-$routes->post('admin/links/save_data', 'Admin\LandingPage\LinkController::save_data');
-$routes->post('admin/links/delete_data', 'Admin\LandingPage\LinkController::delete_data');
 
 //Home 
 $routes->get('/','Home\HomeController::index');
+$routes->get('/mobile','Home\HomeController::index_mobile');
 //SYSTEM MODULES
 
+
+//Vip API
+$routes->post('/show_vip','Vip\ApiController::VipShowDetails');
 // Public API
 $routes->get('getsysconfig/(:alphanum)', 'PublicApi\GetSysConfig::index/$1');
 
